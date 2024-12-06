@@ -1,6 +1,7 @@
 {
   "name": "ids-toolbelt",
-  "displayName": "ids-toolbelt",
+  "displayName": "IDS Toolbelt",
+  "author": "Bruno Annunciato (annubru)",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -10,7 +11,7 @@
     "Other"
   ],
   "activationEvents": [],
-  "main": "./extension.js",
+  "main": "./src/extension.js",
   "contributes": {
     "commands": [
       {

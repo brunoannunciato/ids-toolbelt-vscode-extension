@@ -3,7 +3,7 @@
   "displayName": "IDS Toolbelt",
   "author": "Bruno Annunciato (annubru)",
   "publisher": "Bruno Annunciato",
-  "icon": "/src/images/icon.png",
+  "icon": "src/images/icon.png",
   "galleryBanner": {
     "color": "#FF620",
     "theme": "dark"
@@ -54,7 +54,7 @@
     "test": "vscode-test",
     "dev:snippets": "nodemon ./src/scripts/generateSnippets.js",
     "build:snippets": "node ./src/scripts/generateSnippets.js",
-    "build:production": "yarn build:snippets && vsce package"
+    "build:production": "yarn build:snippets && vsce package --out 'dist' --no-yarn"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.9",

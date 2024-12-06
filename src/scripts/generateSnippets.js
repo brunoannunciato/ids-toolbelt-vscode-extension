@@ -17,6 +17,17 @@ const generatePrefix = (value) => {
     return [value]
 }
 
+const generateDescription = (value) => {
+    const pattern = "rem"
+    const remLength = value.match(new RegExp(pattern, "g") || [])?.length || 0
+
+    if (remLength === 1) {
+        return `variável retorna: ${value}; \n com 16px de base resulta em: ${`${Number(value.replace('rem', '')) * 16}px`}`
+    }
+
+    return `Variável retorna: ${value}`
+}
+
 const snippets = keys.reduce((acc, curr) => {
     
     return {
@@ -24,7 +35,7 @@ const snippets = keys.reduce((acc, curr) => {
         [curr]: {
             "prefix": generatePrefix(tokens[curr]),
             "body": [`var(${curr})`],
-            "description": " "
+            "description": generateDescription(tokens[curr])
           }
     }
 }, {})

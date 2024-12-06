@@ -2,20 +2,30 @@
   "name": "ids-toolbelt",
   "displayName": "IDS Toolbelt",
   "author": "Bruno Annunciato (annubru)",
+  "publisher": "Bruno Annunciato",
+  "icon": "/src/images/icon.png",
+  "galleryBanner": {
+    "color": "#FF620",
+    "theme": "dark"
+  },
   "description": "",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brunoannunciato/ids-toolbelt-vscode-extension"
+  },
   "engines": {
     "vscode": "^1.91.0"
   },
   "categories": [
-    "Other"
+    "Snippets"
   ],
   "activationEvents": [],
   "main": "./src/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "ids-toolbelt.helloWorld",
+        "command": "ids-toolbelt.applyIds",
         "title": "IDS: Aplicar tokens"
       }
     ],

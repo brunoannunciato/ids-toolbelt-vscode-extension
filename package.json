@@ -3,7 +3,7 @@
   "displayName": "IDS Toolbelt",
   "author": "Bruno Annunciato (annubru)",
   "publisher": "Bruno Annunciato",
-  "icon": "src/images/icon.png",
+  "icon": "static/images/icon.png",
   "galleryBanner": {
     "color": "#FF620",
     "theme": "dark"
@@ -32,19 +32,19 @@
     "snippets": [
       {
         "language": "css",
-        "path": "./src/snippets/tokens.json"
+        "path": "./dist/tokens.json"
       },
       {
         "language": "scss",
-        "path": "./src/snippets/tokens.json"
+        "path": "./dist/tokens.json"
       },
       {
         "language": "sass",
-        "path": "./src/snippets/tokens.json"
+        "path": "./dist/tokens.json"
       },
       {
         "language": "stylus",
-        "path": "./src/snippets/tokens.json"
+        "path": "./dist/tokens.json"
       }
     ]
   },

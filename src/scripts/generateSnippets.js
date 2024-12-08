@@ -1,5 +1,5 @@
 const fs = require('fs')
-const tokens = require('../mappers/tokens')
+const tokens = require('../constants/tokens')
 const path = require('path')
 
 console.log("building snippets...")
@@ -40,7 +40,8 @@ const snippets = keys.reduce((acc, curr) => {
     }
 }, {})
 
-fs.writeFile(path.resolve(__dirname, "../snippets/tokens.json"), JSON.stringify(snippets), () => {
-   console.log("snippets builded at: /snippets/tokens.json")
+const buildPath = path.resolve(__dirname, "../../dist/tokens.json")
+fs.writeFile(path.resolve(buildPath), JSON.stringify(snippets), () => {
+   console.log(`snippets builded at: ${buildPath}`)
    return 
 })

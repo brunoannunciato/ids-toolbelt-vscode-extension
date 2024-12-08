@@ -1,8 +1,8 @@
-![IDS Toolbelt](./src/images/icon.png  "IDS Toolbelt")
+![IDS Toolbelt](./static/images/icon.png  "IDS Toolbelt")
 
 # IDS Toolbelt
 
-![Example](src/images/example.gif "Example")
+![Example](static/images/example.gif "Example")
 
 ## Objetivo
 

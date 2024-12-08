@@ -52,8 +52,8 @@
     "lint": "eslint .",
     "pretest": "yarn run lint",
     "test": "vscode-test",
-    "dev:snippets": "nodemon ./src/scripts/generateSnippets.js",
-    "build:snippets": "node ./src/scripts/generateSnippets.js",
+    "dev:snippets": "nodemon ./scripts/generateSnippets.js",
+    "build:snippets": "node ./scripts/generateSnippets.js",
     "build:production": "yarn build:snippets && vsce package --out 'dist' --no-yarn"
   },
   "devDependencies": {

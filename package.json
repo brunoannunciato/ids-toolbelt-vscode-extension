@@ -9,7 +9,7 @@
     "theme": "dark"
   },
   "description": "Encontre os tokens do IDS com facilidade.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/brunoannunciato/ids-toolbelt-vscode-extension"
@@ -20,7 +20,7 @@
   "categories": [
     "Snippets"
   ],
-  "activationEvents": [],
+  "activationEvents": ["*"],
   "main": "./src/extension.js",
   "contributes": {
     "commands": [

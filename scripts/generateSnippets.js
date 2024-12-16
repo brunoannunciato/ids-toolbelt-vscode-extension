@@ -1,5 +1,5 @@
 const fs = require('fs')
-const tokens = require('../constants/tokens')
+const tokens = require('../src/constants/tokens')
 const path = require('path')
 
 console.log("building snippets...")

@@ -1,5 +1,7 @@
 const vscode = require('vscode');
 
+const showTokenValue = require('./functions/showTokenValue')
+
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -37,6 +39,10 @@ function activate(context) {
 			vscode.window.showInformationMessage('"32px" foi substituído por "token-ids"!');
 		});
 	});
+
+	showTokenValue()
+
+
 
 	context.subscriptions.push(applyTokens);
 }

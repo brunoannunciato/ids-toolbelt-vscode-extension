@@ -33,9 +33,9 @@ const snippets = keys.reduce((acc, curr) => {
     return {
         ...acc,
         [curr]: {
-            "prefix": generatePrefix(tokens[curr]),
+            "prefix": generatePrefix(tokens[curr].value),
             "body": [`var(${curr})`],
-            "description": generateDescription(tokens[curr])
+            "description": generateDescription(tokens[curr].value)
           }
     }
 }, {})

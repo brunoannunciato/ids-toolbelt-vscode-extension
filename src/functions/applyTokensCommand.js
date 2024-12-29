@@ -38,12 +38,17 @@ const applyTokensCommand = (context) => {
 
 			let newRowContent = row 
 
-			console.log({possibleValues})
+			const applyTokenToRow = (choosedValue) => {
+				return newRowContent = [newRowContent[0], newRowContent[1].replaceAll(choosedValue[1].value.toLowerCase(), `var(${choosedValue[0].trim().toLowerCase().replace(';', '')})`)]
+			}
 
 			if (possibleValues.length > 0) {
-				possibleValues.forEach(choosedValue => {
-					newRowContent = [newRowContent[0], newRowContent[1].replaceAll(choosedValue[1].value.toLowerCase(), `var(${choosedValue[0].trim().toLowerCase().replace(';', '')})`)]
-				})
+				const propValues = row[1].split(' ')
+				propValues.shift()
+
+				for (let i = 0; i < Math.min(propValues.length, possibleValues.length); i++) {
+					applyTokenToRow(possibleValues[i])
+				}
 			
 				return newRowContent
 			}

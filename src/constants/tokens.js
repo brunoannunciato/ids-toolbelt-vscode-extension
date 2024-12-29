@@ -15,7 +15,7 @@ const tokens = {
     "--ids_color_action_primary_base_medium": {value: "rgba(255, 98, 0, .5)", usage: generalColorsProperties},
     "--ids_color_action_primary_base_strong": {value: "rgba(255, 98, 0, .8)", usage: generalColorsProperties},
     "--ids_color_action_primary_variant": {value: "#E55800", usage: generalColorsProperties},
-    "--ids_color_action_primary_variant_soft": {value: "rgba\(229, 88, 0, .1\)", usage: generalColorsProperties},
+    "--ids_color_action_primary_variant_soft": {value: "rgba(229, 88, 0, .1)", usage: generalColorsProperties},
     "--ids_color_action_primary_variant_medium": {value: "rgba(229, 88, 0, .5)", usage: generalColorsProperties},
     "--ids_color_action_primary_variant_strong": {value: "rgba(229, 88, 0, .8)", usage: generalColorsProperties},
     "--ids_color_action_primary_contrast": {value: "#FFFFFF", usage: generalColorsProperties},

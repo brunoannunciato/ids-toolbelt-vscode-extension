@@ -12,28 +12,48 @@ const applyTokensCommand = (context) => {
 		
 		const document = editor.document
 		const fileContent = document.getText()
-		let updatedContent = fileContent
-
-		Object.entries(tokens).forEach(([variableName, { value, usage }]) => {
-			usage.forEach((cssProperty) => {
-			  const regex = new RegExp(`(${cssProperty}\\s*:\\s*)(?:[^;]*?\s)?${value}`, "gm")
-
-			  updatedContent = updatedContent.replace(regex, `$1var(${variableName})`)
-			})
-		  })
-
-		if (updatedContent === fileContent) {
-			vscode.window.showInformationMessage('Nenhum token foi encontrado no arquivo')
-			return
-		}
-
 		const edit = new vscode.WorkspaceEdit()
 		const fullRange = new vscode.Range(
 			document.positionAt(0),
 			document.positionAt(fileContent.length)
 		)
+		const splittedContent = fileContent.split('\n')
 
-		edit.replace(document.uri, fullRange, updatedContent)
+		const originalContent = splittedContent.map(row => {
+			if (row.includes('{') || row.includes('}') || row === '') return row
+
+			return row.split(':')
+		})
+		
+		const tokensEntries = Object.entries(tokens)
+
+		const convertedContent = originalContent.map(row => {
+			if (!Array.isArray(row)) return row
+
+			const possibleValues = tokensEntries.filter((token) => {
+				const { value, usage } = token[1]
+
+				return usage.includes(row[0].trim()) && ` ${row[1]}`.includes(` ${value}`)
+			})
+
+			if (possibleValues.length > 0) {
+				const choosedValue = possibleValues[0]
+
+				return [row[0], row[1].replaceAll(choosedValue[1].value, `var(${choosedValue[0].trim().replace(';', '')})`)]
+			}
+
+			return row
+		})
+
+		const newContentArray = convertedContent.map(row => {
+			if (!Array.isArray(row)) return row
+
+			return `${row[0]}: ${row[1].trim()}`
+		})
+
+		const fileNewContent = newContentArray.join('\n')
+
+		edit.replace(document.uri, fullRange, fileNewContent)
 
 		vscode.workspace.applyEdit(edit).then(() => {
 			vscode.window.showInformationMessage('Os tokens foram aplicados com sucesso!')

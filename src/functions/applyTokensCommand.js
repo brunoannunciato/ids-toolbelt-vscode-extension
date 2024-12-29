@@ -33,14 +33,16 @@ const applyTokensCommand = (context) => {
 			const possibleValues = tokensEntries.filter((token) => {
 				const { value, usage } = token[1]
 
-				return usage.includes(row[0].trim()) && ` ${row[1]}`.includes(` ${value}`)
+				return usage.includes(row[0].trim()) && ` ${row[1]}`.toLowerCase().includes(` ${value}`.toLowerCase())
 			})
 
 			let newRowContent = row 
 
+			console.log({possibleValues})
+
 			if (possibleValues.length > 0) {
 				possibleValues.forEach(choosedValue => {
-					newRowContent = [newRowContent[0], newRowContent[1].replaceAll(choosedValue[1].value, `var(${choosedValue[0].trim().replace(';', '')})`)]
+					newRowContent = [newRowContent[0], newRowContent[1].replaceAll(choosedValue[1].value.toLowerCase(), `var(${choosedValue[0].trim().toLowerCase().replace(';', '')})`)]
 				})
 			
 				return newRowContent

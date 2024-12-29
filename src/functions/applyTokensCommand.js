@@ -36,10 +36,14 @@ const applyTokensCommand = (context) => {
 				return usage.includes(row[0].trim()) && ` ${row[1]}`.includes(` ${value}`)
 			})
 
-			if (possibleValues.length > 0) {
-				const choosedValue = possibleValues[0]
+			let newRowContent = row 
 
-				return [row[0], row[1].replaceAll(choosedValue[1].value, `var(${choosedValue[0].trim().replace(';', '')})`)]
+			if (possibleValues.length > 0) {
+				possibleValues.forEach(choosedValue => {
+					newRowContent = [newRowContent[0], newRowContent[1].replaceAll(choosedValue[1].value, `var(${choosedValue[0].trim().replace(';', '')})`)]
+				})
+			
+				return newRowContent
 			}
 
 			return row

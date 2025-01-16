@@ -20,10 +20,11 @@ const applyTokensCommand = (context) => {
 		const splittedContent = fileContent.split('\n')
 
 		const originalContent = splittedContent.map(row => {
-			if (row.includes('{') || row.includes('}') || row === '') return row
+			if (row.includes('{') || row.includes('}') || row.trim() === '') return row
 
 			return row.split(':')
 		})
+		
 		
 		const tokensEntries = Object.entries(tokens)
 
@@ -42,7 +43,7 @@ const applyTokensCommand = (context) => {
 				return newRowContent = [newRowContent[0], newRowContent[1].replaceAll(choosedValue[1].value.toLowerCase(), `var(${choosedValue[0].trim().toLowerCase().replace(';', '')})`)]
 			}
 
-			if (possibleValues.length > 0) {
+			if (possibleValues.length) {
 				const propValues = row[1].split(' ')
 				propValues.shift()
 

@@ -7,7 +7,7 @@ const borderWidthProperties = ['border', 'border-width']
 const paddingProperties = ['padding', 'padding-top', 'padding-right', 'padding-bottom', 'padding-left', 'padding-block', 'padding-block-end', 'padding-block-start', 'padding-inline', 'padding-inline-end', 'padding-inline-start']
 const marginProperties = ['margin', 'margin-top', 'margin-right', 'margin-bottom', 'margin-left', 'margin-block', 'margin-block-end', 'margin-block-start', 'margin-inline', 'margin-inline-end', 'margin-inline-start']
 const spacementSizeProperties = [...paddingProperties, ...marginProperties]
-const generalSizeProperties = ['width', 'min-width', 'max-width', 'height', 'min-height', 'max-height']
+const generalSizeProperties = ['width', 'min-width', 'max-width', 'height', 'min-height', 'max-height', 'font-size']
 
 const tokens = {
     "--ids_color_action_primary_base": {value: "#FF6200", usage: generalColorsProperties},

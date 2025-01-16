@@ -20,7 +20,7 @@ const applyTokensCommand = (context) => {
 		const splittedContent = fileContent.split('\n')
 
 		const originalContent = splittedContent.map(row => {
-			if (row.includes('{') || row.includes('}') || row.trim() === '') return row
+			if (row.includes('{') || row.includes('}') || row.trim() === '' || row.includes('@import')) return row
 
 			return row.split(':')
 		})

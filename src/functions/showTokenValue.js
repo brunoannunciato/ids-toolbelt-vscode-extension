@@ -12,14 +12,14 @@ const showTokenValue = (context) => {
                 const idsToken = tokenList[token]
 
                 const pattern = "rem"
-                const remLength = idsToken.match(new RegExp(pattern, "g") || [])?.length || 0
+                const remLength = idsToken.value.match(new RegExp(pattern, "g") || [])?.length || 0
 
                 if (idsToken) {
                     if (remLength === 1) {
-                        return new vscode.Hover(`**IDS Tokens:**\n\r\n\r **Valor do token:** *${idsToken}* \n\r **Valor convertido:** ${Number(idsToken.replace('rem', '')) * 16}px \n\r base 16px`);    
+                        return new vscode.Hover(`**IDS Tokens:**\n\r\n\r **Valor do token:** *${idsToken.value}* \n\r **Valor convertido:** ${Number(idsToken.value.replace('rem', '')) * 16}px \n\r base 16px`);    
                     }
 
-                    return new vscode.Hover(` **IDS Tokens:**\n\r **Valor do token:** *${idsToken}*`);
+                    return new vscode.Hover(` **IDS Tokens:**\n\r **Valor do token:** *${idsToken.value}*`);
                 }
             }
         }

@@ -1,1 +1,0 @@
-var o=require("vscode");function n(s){console.log("extension called");let e=o.commands.registerCommand("ids-toolbelt.helloWorld",function(){o.window.showInformationMessage("Tokens aplicados com sucesso!")});s.subscriptions.push(e)}function t(){}module.exports={activate:n,deactivate:t};
